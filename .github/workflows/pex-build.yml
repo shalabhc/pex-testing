@@ -1,0 +1,14 @@
+name: Build a pex file
+on:
+  - workflow_dispatch
+
+jobs:
+  pex_build:
+    name: Build a pex file
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.8' 
+      - run: pip install pex
+      - run: pex flask -o flask.pex
